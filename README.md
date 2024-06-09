@@ -1,8 +1,12 @@
-# React + Vite
+# Money Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Money Tracker App is a simple application built using React to help you keep track of your income and expenses. It allows users to add, view, and manage their financial transactions in an easy and intuitive way.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Add income and expense transactions
+- View a list of all transactions
+- Display the total balance, income, and expenses
+- Responsive design for mobile and desktop use
