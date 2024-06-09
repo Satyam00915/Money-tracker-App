@@ -1,0 +1,8 @@
+.transact {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid darkgrey;
+  padding: 10px;
+  flex-wrap: wrap;
+  min-width: 500px;
+}

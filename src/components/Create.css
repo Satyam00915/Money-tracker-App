@@ -1,0 +1,42 @@
+.Inputdata {
+  border: 1px solid darkseagreen;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  gap: 20px;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px grey;
+  background-color: whitesmoke;
+}
+
+button {
+  border-radius: 5px !important;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  cursor: pointer;
+  border: 1px solid grey;
+  background-color: #4caf50;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+button:active {
+  opacity: 1;
+}
+
+.box {
+  border: 1px solid;
+  padding: 10px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px darkgrey;
+  border: rgb(1, 64, 1);
+}
