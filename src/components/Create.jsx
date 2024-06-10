@@ -6,18 +6,7 @@ const Create = () => {
   const [money, setMoney] = useState(0);
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [Tncs, setTncs] = useState([
-    {
-      money: 200,
-      description: "Spent on Hotel",
-      date: "2024-06-01",
-    },
-    {
-      money: 400,
-      description: "Spent on Books",
-      date: "2024-05-08",
-    },
-  ]);
+  const [Tncs, setTncs] = useState([]);
 
   function addTransaction(description, money, date) {
     setTncs([
