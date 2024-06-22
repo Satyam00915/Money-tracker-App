@@ -1,17 +1,11 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
 
-mongoose
-  .connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("MongoDB connected");
-  })
-  .catch((err) => {
-    console.error("MongoDB connection error:", err);
-  });
+const mongoURI = process.env.MONGO_URI; // Use environment variable
+
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const transactionSchema = mongoose.Schema({
   money: Number,

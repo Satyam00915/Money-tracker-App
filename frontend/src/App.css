@@ -1,7 +1,84 @@
-.maindata {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.balance {
+  font-size: 2em;
+  margin: 20px 0;
+  text-align: center;
+  color: #bb86fc;
+}
+
+button {
+  background-color: #bb86fc;
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #9e67e9;
+}
+
+input[type="text"],
+input[type="date"] {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  width: calc(100% - 22px);
+}
+
+input[type="text"]::placeholder,
+input[type="date"]::placeholder {
+  color: #666;
+}
+
+button.clear {
+  background-color: #03dac6;
+  margin-right: 10px;
+}
+
+button.clear:hover {
+  background-color: #02b3a4;
+}
+
+.transactions {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.transactions input {
+  width: calc(100% - 40px);
+}
+
+.transactions button {
+  background-color: #bb86fc;
+  margin-left: 10px;
+}
+
+.transactions button:hover {
+  background-color: #9e67e9;
 }

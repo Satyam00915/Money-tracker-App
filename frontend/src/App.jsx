@@ -7,7 +7,9 @@ import Create from "./components/Create";
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Money-Tracker App</h1>
+      <h1 style={{ textAlign: "center", color: "#c58cff" }}>
+        Money-Tracker App{" "}
+      </h1>
       <div className="maindata">
         <Create></Create>
       </div>

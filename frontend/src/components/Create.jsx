@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Create.css";
 import Track from "./Track";
 
@@ -9,6 +9,7 @@ const Create = () => {
   const [date, setDate] = useState("");
   const [Tncs, setTncs] = useState([]);
   const [id, setId] = useState("");
+  const transactionsRef = useRef(null);
 
   useEffect(() => {
     fetch("http://localhost:3000/Tncs").then((resp) => {
@@ -17,6 +18,12 @@ const Create = () => {
       });
     });
   }, []);
+
+  useEffect(() => {
+    if (transactionsRef.current) {
+      transactionsRef.current.scrollTop = transactionsRef.current.scrollHeight;
+    }
+  }, [Tncs]);
 
   function addTransaction(description, money, date) {
     setTncs([
@@ -29,21 +36,39 @@ const Create = () => {
     ]);
   }
 
-  const totalSum = useEffect(() => {
+  useEffect(() => {
     let a = 0;
     for (let i = 0; i < Tncs.length; i++) {
-      a = a + parseInt(Tncs[i].money);
+      a += parseInt(Tncs[i].money);
     }
     setExpenditure(a);
   }, [Tncs]);
+
   return (
-    <>
+    <div className="container">
       <div className="Inputdata">
         <h1>₹{expenditure}</h1>
+        <button
+          className="btn-success"
+          onClick={() => {
+            fetch("http://localhost:3000/drop", {
+              method: "DELETE",
+            }).then((resp) => {
+              resp.json().then((data) => {
+                alert(data.msg);
+                setTncs([]);
+              });
+            });
+          }}
+        >
+          CLEAR
+        </button>
+
         <input
           type="text"
           name="data"
           id="data"
+          placeholder="Description"
           onChange={(e) => {
             setDescription(e.target.value);
           }}
@@ -56,13 +81,13 @@ const Create = () => {
         />
         <input
           type="number"
+          placeholder="Amount"
           onChange={(e) => {
             setMoney(e.target.value);
           }}
         />
         <button
           onClick={() => {
-            // addTransaction(description, money, date);
             fetch("http://localhost:3000/create", {
               method: "POST",
               body: JSON.stringify({
@@ -76,7 +101,6 @@ const Create = () => {
             }).then((response) => {
               response.json().then((data) => {
                 if (data.response) {
-                  // setExpenditure(parseInt(expenditure + parseInt(money)));
                   addTransaction(description, money, date);
                   alert(`Your Transaction ID is: ${data.id}`);
                 } else {
@@ -90,24 +114,16 @@ const Create = () => {
         </button>
       </div>
 
-      <div
-        style={{ display: "flex", flexDirection: "column", gap: "2px" }}
-        className="box"
-      >
-        <h3 style={{ textAlign: "center" }}>Transactions</h3>
-        <div
-          style={{
-            display: "flex",
-            gap: "5px",
-          }}
-        >
+      <div className="box" ref={transactionsRef}>
+        <h3 style={{ textAlign: "center", color: "#02b3a4" }}>Transactions</h3>
+        <div style={{ display: "flex", gap: "5px" }}>
           <input
             type="text"
             placeholder="Enter ID"
             onChange={(e) => {
               setId(e.target.value);
             }}
-            style={{ paddingLeft: "10px", marginLeft: "125px" }}
+            style={{ paddingLeft: "10px" }}
           />
           <button
             onClick={() => {
@@ -121,20 +137,20 @@ const Create = () => {
             Search
           </button>
         </div>
-        <div>
+        <div className="transactions-list">
           {Tncs.map((transaction) => {
             return (
               <Track
-                key={parseInt(Math.random() * 100)}
+                key={transaction.date + transaction.description}
                 money={transaction.money}
                 date={transaction.date}
                 description={transaction.description}
-              ></Track>
+              />
             );
           })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

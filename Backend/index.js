@@ -68,4 +68,17 @@ app.post("/create", async (req, res) => {
   });
 });
 
+app.delete("/drop", async (req, res) => {
+  try {
+    await Tncs.deleteMany({});
+    res.status(200).json({
+      msg: "All transactions all cleared!",
+    });
+  } catch (error) {
+    res.status(500).json({
+      msg: "Some error occurred",
+    });
+  }
+});
+
 app.listen(3000);
