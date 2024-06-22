@@ -4,7 +4,7 @@ A full-stack Money Tracker application built with React for the frontend, Expres
 
 Welcome to my awesome project!
 
-![Example Image](frontend\src\assets\image.png)
+![image.png](frontend\src\assets\image.png)
 
 ## Features
 
