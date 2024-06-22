@@ -2,6 +2,10 @@
 
 A full-stack Money Tracker application built with React for the frontend, Express for the backend, MongoDB for the database, and Zod for schema validation.
 
+Welcome to my awesome project!
+
+![Example Image](frontend\src\assets\image.png)
+
 ## Features
 
 - User Authentication
